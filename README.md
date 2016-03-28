@@ -21,9 +21,9 @@ Text Analytics allows for the analysis of unstructured text for tasks such as se
 
 In this demo, you will see how to:
 
-1) Upload a block of text to Azure Machine Learning Text Analytics API and return the set of key phrases
-2) Upload the resulting key phrases into an Azure Search index where each key phrase is stored within a Collection datatype (comma separated list of items)
-3) Search is performed against this populated search index and the individual phrases are returned
+- Upload a block of text to Azure Machine Learning Text Analytics API and return the set of key phrases
+- Upload the resulting key phrases into an Azure Search index where each key phrase is stored within a Collection datatype (comma separated list of items)
+- Search is performed against this populated search index and the individual phrases are returned
 
 
 
