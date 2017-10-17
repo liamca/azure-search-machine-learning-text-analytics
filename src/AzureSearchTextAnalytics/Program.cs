@@ -20,10 +20,6 @@ namespace AzureSearchTextAnalytics
         static SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(searchServiceAPIKey));
         static ISearchIndexClient indexClient = serviceClient.Indexes.GetClient(indexName);
 
-        private const string KeyField = "metadata_storage_name";
-        private const string SummaryField = "summary";
-        private const string KeyPhrasesField = "keyPhrases";
-
         static void Main(string[] args)
         {
             string content = "It has arrived: Windows 10 version 1709, build 16299, the Fall Creators Update. Members of the Windows Insider program have been able to use this latest iteration for a while now, but today's the day it will hit Windows Update for the masses. " + 
@@ -74,7 +70,13 @@ namespace AzureSearchTextAnalytics
             CreateIndex(serviceClient, indexName);
             UploadDocuments(indexClient, "1", summary, KeyPhrases);
 
+            Console.WriteLine("\r\nWaiting for content to be indexed...");
+            System.Threading.Thread.Sleep(3000);
+
             SearchDocuments(indexClient, "windows");
+
+            Console.ReadLine();
+
         }
 
         static List<Match> GetBestMatches(string[] sentences, List<string> words)
