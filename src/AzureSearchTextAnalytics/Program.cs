@@ -11,14 +11,14 @@ namespace AzureSearchTextAnalytics
     class Program
     {
         private static string TextAnalyticsAPIKey = "Text Analytics Key";     // Learn more here: https://azure.microsoft.com/en-us/documentation/articles/machine-learning-apps-text-analytics/
-        private static int SentencesToSummarize = 3;
-
         static string searchServiceName = "Azure Search Service";     // Learn more here: https://azure.microsoft.com/en-us/documentation/articles/search-what-is-azure-search/
         static string searchServiceAPIKey = "Azure Search Admin API Key";
 
         static string indexName = "textanalytics";
         static SearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(searchServiceAPIKey));
         static ISearchIndexClient indexClient = serviceClient.Indexes.GetClient(indexName);
+
+        private static int SentencesToSummarize = 3;
 
         static void Main(string[] args)
         {
